@@ -12,7 +12,7 @@ class BreedCard extends React.Component {
     }
 
     componentDidMount(){
-        axios.get(`https://dog.ceo/api/breed/${this.props.typeBreed}/images`)
+        axios.get(`https://dog.ceo/api/breed/${this.props.typeBreed}/images/random/1`)
         .then((r) =>{
            // console.log('becard',r);//data.message
            this.setState({srcBreed:r.data.message[0]});
@@ -27,11 +27,10 @@ class BreedCard extends React.Component {
     render(){
         return(
             <Col xs={6} lg={3}>
-            <Card  bg="light" style={{ width: '18rem' }}>
+            <Card  bg="light" style={{ width: '18rem', height:'20rem', marginBottom:'7px'}}>
               {/* <Link to="breeds/{breedGallery}"></Link> */}
                 <Link to={`breeds/${this.props.typeBreed}`}>
-                <Card.Img
-                style={{width:'300px'}}variant="top" src={this.state.srcBreed} />
+                <Card.Img style={{height:'15rem'}}variant="top" src={this.state.srcBreed} />
             </Link>
             <Card.Body>
                 <Card.Title>{this.props.typeBreed}</Card.Title>
